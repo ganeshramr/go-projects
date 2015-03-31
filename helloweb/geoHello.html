@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+	<html>
+		<body onLoad="sayHello()">
+			<h1>Hey , pls allow browser to read your location.</h1>
+		    I am loading your geography hang on ...
+
+		<script>
+		
+		function sayHello() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(postPosition);
+		    } else { 
+		        alert("Sorry Geolocation not enabled")
+		    }
+		}
+
+		function postPosition(position) {
+			window.location.href = 'http://localhost:4444/sayHello?lat='+position.coords.latitude+'&log='+position.coords.longitude;
+		}
+		</script>
+
+		</body>
+	</html>
